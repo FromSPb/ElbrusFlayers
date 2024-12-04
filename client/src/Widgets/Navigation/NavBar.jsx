@@ -11,7 +11,7 @@ function NavBar() {
                             <Link to={'/user'}><a className="nav-link" aria-disabled="true">User</a></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={'/tasks'}><a className="nav-link" aria-disabled="true">Tasks</a></Link>
+                            <Link to={'/price'}><a className="nav-link" aria-disabled="true">Прайс</a></Link>
                         </li>
                     </ul>
                 </div>
