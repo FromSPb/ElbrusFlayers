@@ -2,9 +2,9 @@
 
 function StartPage(props) {
     return (
-        <>
-            Кто прочел тот Pussy
-        </>
+        <div>
+            Добро пожаловать в УРЮПИНСК!
+        </div>
     );
 }
 
