@@ -9,47 +9,41 @@ import SignUpPage from "../Pages/SignUpPage/SignUpPage.jsx";
 import ImagePage from "../Pages/ImagePage/ImagePage";
 import AnimalsPage from "../Pages/AnimalsPage/AnimalsPage";
 
-
 function App() {
-
   const router = createBrowserRouter([
     {
-      path:'/',
-      element:<Layout />,
-      children:[
+      path: "/",
+      element: <Layout />,
+      children: [
         {
-          path:'/',
-          element:<StartPage />
+          path: "/",
+          element: <StartPage />,
         },
         {
-          path:'/animals',
-          element:<AnimalsPage />
+          path: "/animals",
+          element: <AnimalsPage />,
         },
         {
-          path:'/price',
-          element:<PricePage />
+          path: "/price",
+          element: <PricePage />,
         },
         {
-
-          path:'/signin',
-          element:<SignInPage />
+          path: "/signin",
+          element: <SignInPage />,
         },
         {
-          path:'/signup',
-          element:<SignUpPage />
+          path: "/signup",
+          element: <SignUpPage />,
         },
-        
+        {
+          path: "/image",
+          element: <ImagePage />,
+        },
+      ],
+    },
+  ]);
 
-          path:'/image',
-          element:<ImagePage />
-        }
-
-      ]
-    }
-  ])
-
-    return <RouterProvider router={router} />;
-
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

@@ -1,4 +1,5 @@
-import { axiosInstance } from '../../shared/lib/axiosInstance';
+import { axiosInstance } from "../../Shared/lib/axiosInstance";
+
 
 export default class UserApi {
   //! Метод для получения новой пары токенов

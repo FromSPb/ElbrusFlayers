@@ -93,8 +93,10 @@ class AnimalController {
   }
   static async deleteAnimal(req, res) {
     const { id } = req.params;
+    
     try {
-      const deleteAnimal = await AnimalService.delete(id);
+      const deleteAnimal = await AnimalService.delete(+id);
+      
       if (!deleteAnimal) {
         return res
           .status(404)
