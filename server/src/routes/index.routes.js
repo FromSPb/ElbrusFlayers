@@ -1,14 +1,21 @@
-const router = require('express').Router(); //* получаем экземпляр роутинга из библиотеки
-const authRoutes = require('./auth.routes'); //* подтягиваем набор роутинга по определенному пути для сущности User
-const formatResponse = require('../utils/formatResponse'); //* подтягиваем утилиту для унификации ответа по 404
 
-router.use('/auth', authRoutes); //* по пути на auth отрабатывает набор из authRoutes
+const router = require('express').Router()
+const priceRoutes = require('./api.price.routes')
+const animalsRouter = require('./animals.routes')
+const imagesRouter = require('./images.routes')
+const authRoutes = require('./auth.routes'); 
+const formatResponse = require('../utils/formatResponse');
+router.use('/auth', authRoutes);
+router.use('/animals',animalsRouter)
+router.use('/images',imagesRouter)
+router.use('/price', priceRoutes)
 
-//! Обработка всех запросов на несуществующие маршруты (меняем стандартный ответ от express)
 router.use('*', (req, res) => {
   res
     .status(404)
     .json(formatResponse(404, 'Not found', null, 'Resource not found'));
 });
+
+
 
 module.exports = router;

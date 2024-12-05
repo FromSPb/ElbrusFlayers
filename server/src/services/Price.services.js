@@ -1,11 +1,9 @@
-const Price = require('../db/models')
+const {Price} = require('../db/models')
 
 class PriceService {
 
     static async getMaxId() {
-        const maxPrice = await Price.findOne({
-            order: [['id', 'DESC']],
-        });
+        const maxPrice = await Price.findOne({order: [['id', 'DESC']]});
         return maxPrice;
     }
 
