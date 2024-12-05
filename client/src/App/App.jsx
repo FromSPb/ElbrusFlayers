@@ -6,6 +6,7 @@ import SignInPage from "../Pages/SignInPage/SignInPage.jsx";
 import SignUpPage from "../Pages/SignUpPage/SignUpPage.jsx";
 import ImagePage from "../Pages/ImagePage/ImagePage";
 import AnimalsPage from "../Pages/AnimalsPage/AnimalsPage";
+
 import { useEffect, useState } from "react";
 import { setAccessToken } from "../shared/lib/axiosInstance.js";
 import Navigation from "../Widgets/Navigate/Navigation.jsx";
@@ -47,6 +48,7 @@ function App() {
         { path: "/signIn", element: <SignInPage setUser={setUser} /> },
         { path: "/signUp", element: <SignUpPage setUser={setUser} /> },
         { path: "/image", element: <ImagePage setUser={setUser} /> },
+
       ],
     },
   ]);

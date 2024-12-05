@@ -1,22 +1,45 @@
-import { axiosInstance } from '../../Shared/lib/axiosInstance'
+import { axiosInstance } from "../../Shared/lib/axiosInstance";
 
 class AnimalApi {
-    static async getAnimals() {
-        try {
-            const {data} = await axiosInstance.get('/animals')
-            return data
-        } catch (error) {
-            return error.response.data
-        }
+  static async getAnimals() {
+    try {
+      const { data } = await axiosInstance.get("/animals");
+      return data;
+    } catch (error) {
+      return error.response.data;
     }
-    static async updateAnimal(id) {
-        try {
-            const {data} = await axiosInstance.post(`/animals/:${id}`)
-            return data
-        } catch (error) {
-            return error.response.data
-        }
+  }
+  static async updateAnimal(id, data) {
+    try {
+      const { data } = await axiosInstance.post(`/animals/:${id}`, data);
+      return data;
+    } catch (error) {
+      return error.response.data;
     }
+  }
+  static async uploadAnimalPhoto(id, img) {
+    try {
+      const resp = await axiosInstance.post(`/images/upload/${id}`, img, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(resp,123);
+      
+      return resp;
+    } catch (error) {
+      return error.response.data;
+    }
+  }
+  static async deleteAnimalById(id) {
+    try {
+      const { data } = await axiosInstance.delete(`/animals/${id}`);
+
+      return data;
+    } catch (error) {
+      return error.response.data;
+    }
+  }
 }
 
-export default AnimalApi
+export default AnimalApi;

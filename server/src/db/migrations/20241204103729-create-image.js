@@ -23,7 +23,8 @@ module.exports = {
         references:{
           model:'Animals',
           key:'id'
-        }
+        },
+         onDelete:'CASCADE'
       },
 
       createdAt: {

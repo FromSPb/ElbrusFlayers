@@ -29,10 +29,11 @@ class AnimalService {
   }
   static async delete(id){
     const deletedAnimal = await this.getById(id)
+    
     if(deletedAnimal){
       await deletedAnimal.destroy()
     }
-    return deletedAnimal 
+    return await deletedAnimal 
   }
 }
 module.exports = AnimalService;
