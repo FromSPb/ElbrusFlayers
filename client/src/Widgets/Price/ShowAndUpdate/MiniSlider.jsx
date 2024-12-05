@@ -6,7 +6,7 @@ const MiniSlider = ({ images }) => {
   return (
     <Swiper
         modules={[Navigation]}
-      spaceBetween={10}
+      spaceBetween={0}
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}

@@ -1,4 +1,4 @@
-import React from "react";
+
 import MiniSlider from "./MiniSlider";
 
 const images = [
@@ -9,7 +9,7 @@ const images = [
 
 const Card = () => {
   return (
-    <div style={{ width: "300px", border: "1px solid black", padding: "10px" }}>
+    <div style={{ width: "300px", border: "1px solid black"}}>
       <h3>Card Title</h3>
       <MiniSlider images={images} />
     </div>

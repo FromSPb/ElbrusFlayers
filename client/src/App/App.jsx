@@ -3,7 +3,8 @@ import Layout from "../Widgets/Layout/Layout";
 import StartPage from "../Pages/StartPage/StartPage";
 import PricePage from "../Pages/PricePage/PricePage";
 import ImagePage from "../Pages/ImagePage/ImagePage";
-// import "swiper/swiper-bundle.min.css"
+import AnimalsPage from "../Pages/AnimalsPage/AnimalsPage";
+
 function App() {
 
   const router = createBrowserRouter([
@@ -14,6 +15,10 @@ function App() {
         {
           path:'/',
           element:<StartPage />
+        },
+        {
+          path:'/animals',
+          element:<AnimalsPage />
         },
         {
           path:'/price',
