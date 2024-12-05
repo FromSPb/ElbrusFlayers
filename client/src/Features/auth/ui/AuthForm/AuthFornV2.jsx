@@ -145,7 +145,7 @@ export default function AuthForm({ type, setUser }) {
             <input
               type="radio"
               id="userChill"
-              name="userNormis"
+              name="normis"
               value="userChill"
             />
             <label for="userNormis">Юзер обыкновенный</label>
@@ -155,7 +155,7 @@ export default function AuthForm({ type, setUser }) {
             <input
               type="radio"
               id="userMain"
-              name="adminName"
+              name="normis"
               value="userMain"
             />
             <label for="adminName">Админ</label>
