@@ -9,7 +9,9 @@ function AnimalList(props) {
       data: { data },
     } = await axiosInstance.get("/animals");
     setAnimals(data);
-    console.log(data);
+    console.log(data, 111);
+    console.log(animals, 222);
+    
   };
   useEffect(() => {
     loadAnimals();
