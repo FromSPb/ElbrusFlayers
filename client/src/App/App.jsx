@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../Widgets/Layout/Layout";
 import StartPage from "../Pages/StartPage/StartPage";
 import PricePage from "../Pages/PricePage/PricePage";
+import ImagePage from "../Pages/ImagePage/ImagePage";
 import AnimalsPage from "../Pages/AnimalsPage/AnimalsPage";
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
         {
           path:'/price',
           element:<PricePage />
+        },
+        {
+          path:'/image',
+          element:<ImagePage />
         }
       ]
     }
