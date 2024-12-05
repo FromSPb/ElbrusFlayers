@@ -19,7 +19,7 @@ const serverConfig = (app) => {
   app.use(cookieParser());
   app.use(cors(corsConfig));
   app.use(removeHTTPheader);
-  app.use('/images',express.static(path.join(__dirname,'public')))
+  app.use('/images',express.static(path.join(__dirname,'..','public')))
 };
 
 module.exports = serverConfig;

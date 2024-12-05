@@ -76,6 +76,7 @@ class AnimalController {
         type,
         description,
       });
+      // const updateImage = await A
       if (!updatedAnimal) {
         return res
           .status(404)
