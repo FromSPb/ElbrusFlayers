@@ -4,7 +4,7 @@ import { message as antMessage } from "antd";
 import UserValidator from "../../../../Entites/Users/User.validator";
 import UserApi from "../../../../Entites/Users/UserApi";
 import Button from "../../../../Shared/lib/ui/Button/Button";
-import { setAccessToken } from "../../../../shared/lib/axiosInstance";
+import { setAccessToken } from "../../../../Shared/lib/axiosInstance";
 
 //NOTE Компонент формы аутентификации, принимает тип формы (вход или регистрация) и функцию установки пользователя
 export default function AuthForm({ type, setUser }) {
