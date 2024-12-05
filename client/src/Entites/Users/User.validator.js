@@ -2,7 +2,7 @@ export default class UserValidator {
     /**
      * Метод для валидации данных пользователя при регистрации.
      * @param {object} data - Объект данных пользователя, который необходимо проверить.
-     * @param {string} data.username - Имя пользователя (обязательное поле).
+     * @param {string} data.name - Имя пользователя (обязательное поле).
      * @param {string} data.email - Email пользователя (обязательное поле).
      * @param {string} data.password - Пароль пользователя (обязательное поле, должно быть определенной длины).
      * @returns {object} - Объект, содержащий результат валидации.
@@ -10,14 +10,14 @@ export default class UserValidator {
      * @returns {string|null} error - Сообщение об ошибке валидации, если имеется, иначе null.
      */
     static validateSignUp(data) {
-      const { username, email, password } = data; // Деструктуризация объекта данных для получения полей username, email и password.
+      const { name, email, password, role } = data; // Деструктуризация объекта данных для получения полей name, email и password.
   
-      //! Проверка валидности поля username
-      if (!username || typeof username !== 'string' || username.trim() === '') {
-        // Если username отсутствует, не является строкой или является пустой строкой
+      //! Проверка валидности поля name
+      if (!name || typeof name !== 'string' || name.trim() === '') {
+        // Если name отсутствует, не является строкой или является пустой строкой
         return {
           isValid: false, // Данные невалидные
-          error: 'Username is required and must be a non-empty string.', // Сообщение об ошибке с указанием типа ошибки
+          error: 'name is required and must be a non-empty string.', // Сообщение об ошибке с указанием типа ошибки
         };
       }
   
@@ -50,6 +50,8 @@ export default class UserValidator {
             'Password is required, must be a non-empty string, contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.', // Подробное сообщение об ошибке
         };
       }
+
+     
   
       //* Если все проверки пройдены, возвращаем валидный результат.
       return {
@@ -68,7 +70,7 @@ export default class UserValidator {
      * @returns {string|null} error - Сообщение об ошибке валидации, если имеется, иначе null.
      */
     static validateSignIn(data) {
-      const { email, password } = data; // Деструктуризация данных для входа
+      const { email, password, role } = data; // Деструктуризация данных для входа
   
       //! Проверка валидности поля email
       if (
@@ -90,6 +92,16 @@ export default class UserValidator {
           error: 'Password is required and must not be an empty string.',
         };
       }
+
+      // if (
+      //   !role 
+      // ) {
+      //   return {
+      //     isValid: false, // Данные невалидные
+      //     error:
+      //       'role is required.', // Более детальное сообщение об ошибке
+      //   };
+      // }
   
       //* Если все проверки пройдены, возвращаем валидный результат.
       return {

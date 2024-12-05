@@ -71,17 +71,17 @@ class UserValidator {
     const { email, password } = data; // Деструктуризация данных для входа
 
     //! Проверка валидности поля email
-    if (
-      !email ||
-      typeof email !== 'string' ||
-      email.trim() === '' ||
-      !this.validateEmail(email) // Проверка на валидность email
-    ) {
-      return {
-        isValid: false,
-        error: 'Email is required and must be a valid email address.',
-      };
-    }
+    // if (
+    //   !email ||
+    //   typeof email !== 'string' ||
+    //   email.trim() === '' ||
+    //   !this.validateEmail(email) // Проверка на валидность email
+    // ) {
+    //   return {
+    //     isValid: false,
+    //     error: 'Email is required and must be a valid email address.',
+    //   };
+    // }
 
     //! Проверка валидности поля password
     if (!password || typeof password !== 'string' || password.trim() === '') {

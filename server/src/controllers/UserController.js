@@ -95,7 +95,6 @@ class UserController {
     const { email, password, role } = req.body;
 
     const { isValid, error } = UserValidator.validateSignIn({
-      email: normalizedEmail,
       password,
       role,
     });

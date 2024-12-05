@@ -1,4 +1,4 @@
-export default function ButtonOn({
+export default function Button({
     text,
     color,
     disabled,
