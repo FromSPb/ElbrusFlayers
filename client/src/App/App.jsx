@@ -11,6 +11,7 @@ import { setAccessToken } from "../Shared/lib/axiosInstance.js"
 import UserApi from "../Entites/Users/UserApi.js";
 import Layout from "../Widgets/Layout/Layout.jsx";
 
+
 function App() {
   const [user, setUser] = useState(null);
   useEffect(() => {

@@ -20,12 +20,14 @@ function AnimalList({ user }) {
 
   return (
     <>
+
       {user?.role === 'admin' && <AnimalCreateForm setAnimals={setAnimals} />}
       <div className="animal-list">
         {animals.map((animal) => (
           <AnimalCard key={animal.id} animal={animal} setAnimals={setAnimals} user={user} />
         ))}
       </div>
+
     </>
   );
 }
