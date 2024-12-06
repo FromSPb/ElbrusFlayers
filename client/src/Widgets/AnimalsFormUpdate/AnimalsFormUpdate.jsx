@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { message as antMessage, Button } from "antd";
+import { message as antMessage, Button, Input } from "antd";
 import AnimalApi from "../../Entites/Animals/AnimalApi";
 
 function AnimalsFormUpdate({ animal, setAnimals, setShowUpdateForm }) {
@@ -9,6 +9,7 @@ function AnimalsFormUpdate({ animal, setAnimals, setShowUpdateForm }) {
     type: animal.type,
     description: animal.description,
   });
+  
   const isEmptyFormData =
     inputs.name.trim().length === 0 ||
     inputs.type.trim().length === 0 ||
@@ -19,12 +20,8 @@ function AnimalsFormUpdate({ animal, setAnimals, setShowUpdateForm }) {
     setInputs((prev) => ({ ...prev, [name]: value }));
   }
 
-  async function sendInputs(params) {
-    // if (user.role !== "admin") {
-    //   antMessage.error(`Нет прав для изменения`);
-    //   return;
-    // }
-    if(isEmptyFormData){
+  async function sendInputs() {
+    if (isEmptyFormData) {
       antMessage.error('Все поля обязательны к заполнению');
       return;
     }
@@ -47,33 +44,30 @@ function AnimalsFormUpdate({ animal, setAnimals, setShowUpdateForm }) {
       console.log(error);
     }
   }
-  console.log(inputs);
-  
+
   return (
-    <div>
-      <input
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <Input
         name="name"
         value={inputs.name}
-        // placeholder="title"
+        placeholder="Имя"
         onChange={changeInputs}
       />
-      <input
+      <Input
         name="type"
         value={inputs.type}
-        // placeholder="body"
+        placeholder="Тип"
         onChange={changeInputs}
       />
-      <input
+      <Input
         name="description"
         value={inputs.description}
-        // placeholder="body"
+        placeholder="Описание"
         onChange={changeInputs}
       />
       <Button type="primary" onClick={sendInputs}>
         Отправить изменения
       </Button>
-
-      {/* <Button text="Сохранить" onClick={sendInputs} /> */}
     </div>
   );
 }

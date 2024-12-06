@@ -1,16 +1,14 @@
 import React, { useRef, useState } from "react";
-import { Card, Button, Modal, Form, Input } from "antd";
+import { Card, Button, Modal, Form, Upload } from "antd";
 import AnimalApi from "../../Entites/Animals/AnimalApi";
 import { message as antMessage } from "antd";
 import AnimalsFormUpdate from "../AnimalsFormUpdate/AnimalsFormUpdate";
 import MiniSlider from "./MiniSlider";
 
-
 const { Meta } = Card;
 
 function AnimalCard({ user, animal, setAnimals }) {
   const [img, setImg] = useState(null);
-  const fileInputRef = useRef(null);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -57,13 +55,9 @@ function AnimalCard({ user, animal, setAnimals }) {
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
-
-
         cover={<img alt="example" src={`${import.meta.env.VITE_API}images/${animal?.Images[0]?.img1}`} />}
-
       >
         <Meta title={<span>{animal?.name}</span>} description={<span>{animal?.type}</span>} />
-
       </Card>
 
       <Modal
@@ -74,19 +68,19 @@ function AnimalCard({ user, animal, setAnimals }) {
         }
         footer={
           user?.role === 'admin' && (
-            <div>
-              <input
-                type="file"
-                name="animalImg"
-                onChange={(e) => setImg(e.target.files[0])}
-                ref={fileInputRef}
-              />
-              <Button type="primary" onClick={addImg}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <Upload beforeUpload={(file) => { setImg(file); return false; }} showUploadList={false}>
+                <Button type="primary" style={{ marginBottom: '10px' }}>
+                  Выберите изображение
+                </Button>
+              </Upload>
+              <Button type="primary" onClick={addImg} style={{ marginBottom: '10px' }}>
                 Добавить фото
               </Button>
               <Button
                 type="primary"
                 onClick={() => setShowUpdateForm((prev) => !prev)}
+                style={{ marginBottom: '10px' }}
               >
                 {showUpdateForm ? 'Скрыть' : 'Изменить'}
               </Button>
