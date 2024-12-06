@@ -42,6 +42,41 @@ module.exports = {
 
           animal_id: 4,
         },
+        {
+          img1: "8.1.jpg",
+
+          animal_id: 5,
+        },
+        {
+          img1: "8.2.jpg",
+
+          animal_id: 5,
+        },
+        {
+          img1: "8.3.jpg",
+
+          animal_id: 5,
+        },
+        {
+          img1: "9.1.jpeg",
+
+          animal_id: 6,
+        },
+        {
+          img1: "9.2.jpg",
+
+          animal_id: 6,
+        },
+        {
+          img1: "10.1.jpg",
+
+          animal_id: 7,
+        },
+        {
+          img1: "10.2.jpg",
+
+          animal_id: 7,
+        },
       ],
       {}
     );
