@@ -7,30 +7,40 @@ module.exports = {
       "Images",
       [
         {
-          img1: "https://img-fotki.yandex.ru/get/3510/reynardf1.14/0_dae9_d2a5b0e7_XL.jpg",
+          img1: "1.2.2.jpeg",
           animal_id: 1,
         },
         {
-          img1: "https://img-fotki.yandex.ru/get/3510/reynardf1.14/0_dae9_d2a5b0e7_XL.jpg",
+          img1: "1.jpg",
           animal_id: 1,
         },
         {
-          img1: "https://basket-15.wbbasket.ru/vol2332/part233294/233294071/images/big/1.webp",
+          img1: "2.jpg",
           animal_id: 2,
         },
         {
-          img1: "https://basket-15.wbbasket.ru/vol2332/part233294/233294071/images/big/1.webp",
+          img1: "2.2.jpeg",
           animal_id: 2,
         },
         {
-          img1: "https://i.ytimg.com/vi/xqwyYv6Vaog/hqdefault.jpg",
+          img1: "3.1.jpeg",
 
           animal_id: 3,
         },
         {
-          img1: "https://i.ytimg.com/vi/xqwyYv6Vaog/hqdefault.jpg",
+          img1: "3.2.jpg",
 
           animal_id: 3,
+        },
+        {
+          img1: "4.jpeg",
+
+          animal_id: 4,
+        },
+        {
+          img1: "4.2.jpeg",
+
+          animal_id: 4,
         },
       ],
       {}
