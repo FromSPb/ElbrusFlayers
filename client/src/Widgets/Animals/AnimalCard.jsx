@@ -3,13 +3,13 @@ const { Meta } = Card;
 import { Button, Card, Modal } from "antd";
 import AnimalApi from "../../Entites/Animals/AnimalApi";
 import { message as antMessage } from "antd";
+import AnimalsFormUpdate from "../AnimalsFormUpdate/AnimalsFormUpdate";
 
-function AnimalCard({ animal, setAnimals }) {
+function AnimalCard({ user,animal, setAnimals }) {
   const [img, setImg] = useState(null);
   const fileInputRef = useRef(null);
   const [avatar, setAvatar] = useState(null);
-
-  const [faf, setFaf] = useState(false);
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -19,7 +19,6 @@ function AnimalCard({ animal, setAnimals }) {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-    // setFaf((prev) => !prev);
   };
 
   async function deleteAnimal(params) {
@@ -37,25 +36,23 @@ function AnimalCard({ animal, setAnimals }) {
   }
   async function addImg(params) {
     try {
-      const formData = new FormData()
-      formData.append('animalImg',img)
-      const {data} = await AnimalApi.uploadAnimalPhoto(animal.id,formData)
-      console.log(data.data.img1,123);
-      setAvatar(data.data.img1)
+      const formData = new FormData();
+      formData.append("animalImg", img);
+      const { data } = await AnimalApi.uploadAnimalPhoto(animal.id, formData);
+      console.log(data.data.img1, 123);
+      setAvatar(data.data.img1);
     } catch (error) {
       antMessage.error(error);
       return;
     }
   }
-  console.log(animal.Images[3].img1);
-  console.log(import.meta.env.VITE_API,44);
-  console.log(animal,444);
-  
-  
+ 
   return (
     <>
-    <div>{animal.Images[3].img1}</div>
-    <img src={`${import.meta.env.VITE_API}images/${animal.Images[3].img1}`} width='40' />
+      {/* <img
+        src={`${import.meta.env.VITE_API}images/${animal.Images[6].img1}`}
+        width="40"
+      /> */}
       <Card
         hoverable
         onClick={openModal}
@@ -77,20 +74,39 @@ function AnimalCard({ animal, setAnimals }) {
           </h2>
         }
         footer={
-          <div>
-            {/* <Button type="primary">Добавить фото</Button> */}
+          user?.role === 'admin' && (<div>
             <input
-            type="file"
-            name="animalImg"
-            onChange={(e) => setImg(e.target.files[0])}
-            ref={fileInputRef} 
-          />
-          <Button type="primary" onClick={addImg}>добавить</Button>
-            <Button type="primary">Изменить</Button>
-            <Button type="primary" onClick={deleteAnimal}>
-              Удалить
+              type="file"
+              name="animalImg"
+              onChange={(e) => setImg(e.target.files[0])}
+              ref={fileInputRef}
+            />
+            <Button type="primary" onClick={addImg}>
+              Добавить фото
             </Button>
-          </div>
+            {showUpdateForm ?  (
+              <Button
+                type="primary"
+                onClick={() => setShowUpdateForm((prev) => !prev)}
+              >
+                Скрыть
+              </Button>
+            ):(
+              <Button
+                type="primary"
+                onClick={() => setShowUpdateForm((prev) => !prev)}
+              >
+                Изменить
+              </Button>
+            ) }
+            <Button
+                type="primary"
+                onClick={deleteAnimal}
+              >
+                Удалить
+              </Button>
+            {showUpdateForm && <AnimalsFormUpdate animal={animal} setAnimals={setAnimals} setShowUpdateForm={setShowUpdateForm}/>}
+          </div>)
         }
         loading={loading}
         open={open}
@@ -100,10 +116,6 @@ function AnimalCard({ animal, setAnimals }) {
         <img src={`${animal.Images[0].img1}`}></img>
       </Modal>
 
-      {/* {animal.name}
-      {animal.type}
-      <button onClick={click}>изменить</button>
-      {faf === true && <h1>1</h1>} */}
     </>
   );
 }

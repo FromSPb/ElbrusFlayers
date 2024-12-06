@@ -9,9 +9,11 @@ class AnimalApi {
       return error.response.data;
     }
   }
-  static async updateAnimal(id, data) {
+  static async updateAnimal(id, updateData) {
     try {
-      const { data } = await axiosInstance.post(`/animals/:${id}`, data);
+        
+      const { data } = await axiosInstance.put(`/animals/${id}`, updateData);
+      
       return data;
     } catch (error) {
       return error.response.data;
