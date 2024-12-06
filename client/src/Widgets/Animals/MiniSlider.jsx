@@ -25,5 +25,5 @@ const MiniSlider = ({ images }) => {
     </Swiper>
   );
 };
-
+//deleteAnimalById(id)
 export default MiniSlider;
