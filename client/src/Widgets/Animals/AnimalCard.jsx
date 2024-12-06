@@ -4,8 +4,11 @@ import { Button, Card, Modal } from "antd";
 import AnimalApi from "../../Entites/Animals/AnimalApi";
 import { message as antMessage } from "antd";
 import AnimalsFormUpdate from "../AnimalsFormUpdate/AnimalsFormUpdate";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import MiniSlider from "./MiniSlider";
 
-function AnimalCard({ user,animal, setAnimals }) {
+function AnimalCard({ user, animal, setAnimals }) {
   const [img, setImg] = useState(null);
   const fileInputRef = useRef(null);
   const [avatar, setAvatar] = useState(null);
@@ -72,6 +75,7 @@ function AnimalCard({ user,animal, setAnimals }) {
           <h2>
             {animal.type}: ({animal.name})
           </h2>
+
         }
         footer={
           user?.role === 'admin' && (<div>
@@ -112,10 +116,10 @@ function AnimalCard({ user,animal, setAnimals }) {
         open={open}
         onCancel={() => setOpen(false)}
       >
+        <MiniSlider images={animal.Images} />
         <p>{animal.description}</p>
-        <img src={`${animal.Images[0].img1}`}></img>
+        
       </Modal>
-
     </>
   );
 }

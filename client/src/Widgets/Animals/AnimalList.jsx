@@ -16,7 +16,6 @@ function AnimalList({user}) {
   useEffect(() => {
     loadAnimals();
   }, []);
-console.log(animals);
 
   return (
     <>

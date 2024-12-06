@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 // import { axiosInstance } from '../../../Shared/lib/axiosInstance';
 import PriceApi from '../../../Entites/Price/PriceApi'
-import Card from './Card';
 
 function ShowUpdPrice(props) {
 
@@ -10,7 +9,7 @@ function ShowUpdPrice(props) {
     const loadPrice = async () => {
         try {
             const price = await PriceApi.getPrice()
-            setPrice( price )// прилетает косарь
+            setPrice( price )
         } catch (error) {
             console.log(error.response.data)
             return error
@@ -24,7 +23,6 @@ function ShowUpdPrice(props) {
         <>
             <h1> wtyf dphjckjuj{price}</h1>
             wtyf lkz dphjckjuj yf ds {price*2}
-            <Card />
         </>
     );
 }

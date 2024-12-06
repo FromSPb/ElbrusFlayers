@@ -29,7 +29,6 @@ export default function Navigation({ user, setUser }) {
     }
   };
 
-  //NOTE - в верстке есть опциональное отражение элементов в зависимости от наличия юзера в стейте
   return (
     <div>
       <div className={styles.container}>
@@ -63,7 +62,6 @@ export default function Navigation({ user, setUser }) {
         )}
         
       </div>
-      <Outlet />
 
       <h1>FOOTER</h1>
     </div>
