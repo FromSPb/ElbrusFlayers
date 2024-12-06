@@ -9,6 +9,21 @@ class AnimalApi {
       return error.response.data;
     }
   }
+  static async createAnimal(addAnimal){
+    console.log(addAnimal,555);
+    
+    try {
+        const {data} = await axiosInstance.post('/animals',addAnimal,{
+          headers:{
+            "Content-Type":'multipart/form-data'
+          }
+        })
+        return data
+    } catch (error) {
+        return error.response.data;
+
+    }
+  }
   static async updateAnimal(id, updateData) {
     try {
         

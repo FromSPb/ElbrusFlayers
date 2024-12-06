@@ -1,0 +1,6 @@
+.animal-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Подгоняет карточки */
+  gap: 20px; /* Пространство между карточками */
+  padding: 20px; /* Отступ вокруг контейнера */
+}
