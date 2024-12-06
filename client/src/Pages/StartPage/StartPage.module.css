@@ -1,0 +1,35 @@
+.container {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-weight: 500; */
+    font-size: 40px;
+    top: 0;
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid white;
+  }
+
+
+  .zoomain {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-weight: 500; */
+    font-size: 40px;
+    top: 0;
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid white;
+    
+  }
+
+  .img {
+    height: 300px;
+  }
+
+  

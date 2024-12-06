@@ -49,8 +49,7 @@ function AnimalCard({ user, animal, setAnimals }) {
       return;
     }
   }
-  console.log('=========',`${import.meta.env.VITE_API}images/${animal.Images[2].img1}`)
-  console.log('---------------',animal.Images)
+
   return (
     <>
       {/* <img
@@ -64,7 +63,7 @@ function AnimalCard({ user, animal, setAnimals }) {
           width: 250,
           margin: "10px",
         }}
-        cover={<img alt="example" src={`${import.meta.env.VITE_API}images/${animal.Images[2].img1}`} />}
+        cover={<img alt="example" src={`${import.meta.env.VITE_API}images/${animal?.Images[2]?.img1}`} />}
       >
         
         <Meta

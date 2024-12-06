@@ -19,7 +19,7 @@ function AnimalList({user}) {
 
   return (
     <>
-      {animals.map((animal) => (
+      {animals?.map((animal) => (
         <AnimalCard animal={animal} setAnimals={setAnimals} user={user}/>
       ))}
     </>
