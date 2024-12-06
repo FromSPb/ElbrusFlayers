@@ -1,4 +1,5 @@
 const AnimalService = require("../services/Animals.service");
+const ImageService = require("../services/Image.service");
 const AnimalValidator = require("../utils/AnimalValidator");
 const formatResponse = require("../utils/formatResponse");
 class AnimalController {
@@ -28,8 +29,8 @@ class AnimalController {
   static async getAnimalById(req, res) {
     const { id } = req.params;
     try {
-      const animal = await AnimalService.getById(id)
-      res.status(200).json(formatResponse(200,'success',animal))
+      const animal = await AnimalService.getById(id);
+      res.status(200).json(formatResponse(200, "success", animal));
     } catch ({ message }) {
       return res
         .status(500)
@@ -37,12 +38,24 @@ class AnimalController {
     }
   }
   static async createAnimal(req, res) {
+    console.log(req.body.name,'---');
+    console.log(req.file);
+
+    // console.log(req.body.animalImg);
+
     const { name, type, description } = req.body;
+    const{filename} = req.file
+
     const { isValid, error } = AnimalValidator.validate({
       name,
       type,
       description,
     });
+    if(!filename){
+      return res
+      .status(400)
+      .json(formatResponse(400, "No images", null, error));
+    }
     if (!isValid) {
       return res
         .status(400)
@@ -50,7 +63,16 @@ class AnimalController {
     }
     try {
       const newAnimal = await AnimalService.create({ name, type, description });
-      res.status(201).json(formatResponse(201, "Success create", newAnimal));
+      const newAnimalImg = await ImageService.addImage(newAnimal.id,filename)
+      console.log(newAnimalImg);
+
+      const animalToClient = newAnimal.get()
+      const animalImgToClient = newAnimalImg.get()
+
+      animalToClient.Images = [animalImgToClient]
+      
+      res.status(201).json(formatResponse(201, "Success create", animalToClient));
+     
     } catch ({ message }) {
       return res
         .status(500)
@@ -58,10 +80,9 @@ class AnimalController {
     }
   }
   static async updateAnimal(req, res) {
-
     const { id } = req.params;
     const { name, type, description } = req.body;
-    
+
     const { isValid, error } = AnimalValidator.validate({
       name,
       type,
@@ -73,7 +94,6 @@ class AnimalController {
         .json(formatResponse(400, "Validation error", null, error));
     }
     try {
-      
       const updatedAnimal = await AnimalService.update(id, {
         name,
         type,
@@ -96,10 +116,10 @@ class AnimalController {
   }
   static async deleteAnimal(req, res) {
     const { id } = req.params;
-    
+
     try {
       const deleteAnimal = await AnimalService.delete(+id);
-      
+
       if (!deleteAnimal) {
         return res
           .status(404)

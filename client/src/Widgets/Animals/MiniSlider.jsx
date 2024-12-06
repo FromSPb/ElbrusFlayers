@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
 const MiniSlider = ({ images }) => {
+
   return (
     <Swiper
         modules={[Navigation]}
