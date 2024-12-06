@@ -21,8 +21,21 @@ function ShowUpdPrice(props) {
 
     return (
         <>
-            <h1> wtyf dphjckjuj{price}</h1>
-            wtyf lkz dphjckjuj yf ds {price*2}
+            <h1> Ваша цена </h1>
+            <ul>
+                <li>
+                    Взрослые будни:{price}
+                </li>
+                <li>
+                    Взрослые выходные:{Math.floor(price*1.5)}
+                </li>
+                <li>
+                    Детские будни:{Math.floor(price/2)}
+                </li>
+                <li>
+                    Детские выходные:{Math.floor((price*1.5)/2)}
+                </li>
+            </ul>
         </>
     );
 }
