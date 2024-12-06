@@ -1,11 +1,11 @@
 
 import AnimalList from '../../Widgets/Animals/AnimalList';
 
-function AnimalsPage(props) {
+function AnimalsPage({user}) {
 
     return (
         <>
-            <AnimalList />
+            <AnimalList user={user} />
         </>
     );
 }

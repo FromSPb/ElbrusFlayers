@@ -8,7 +8,7 @@ import ImagePage from "../Pages/ImagePage/ImagePage";
 import AnimalsPage from "../Pages/AnimalsPage/AnimalsPage";
 
 import { useEffect, useState } from "react";
-import { setAccessToken } from "../shared/lib/axiosInstance.js";
+import { setAccessToken } from "../Shared/lib/axiosInstance.js"
 import Navigation from "../Widgets/Navigate/Navigation.jsx";
 // import { Layout } from "antd";
 import UserApi from "../Entites/Users/UserApi.js";
@@ -43,7 +43,7 @@ function App() {
       element: <Navigation user={user} setUser={setUser} />,
       children: [
         { path: "/", element: <StartPage /> },
-        { path: "/animals", element: <AnimalsPage setUser={setUser} /> },
+        { path: "/animals", element: <AnimalsPage user={user} setUser={setUser} /> },
         { path: "/price", element: <PricePage setUser={setUser} /> },
         { path: "/signIn", element: <SignInPage setUser={setUser} /> },
         { path: "/signUp", element: <SignUpPage setUser={setUser} /> },

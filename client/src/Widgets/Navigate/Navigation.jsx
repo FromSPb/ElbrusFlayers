@@ -4,7 +4,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import Button from "../../Shared/lib/Button";
 import { message as antMessage } from "antd";
 import UserApi from "../../Entites/Users/UserApi";
-import { setAccessToken } from "../../shared/lib/axiosInstance";
+import { setAccessToken } from "../../Shared/lib/axiosInstance";
 
 export default function Navigation({ user, setUser }) {
   const navigate = useNavigate();

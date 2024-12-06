@@ -58,8 +58,10 @@ class AnimalController {
     }
   }
   static async updateAnimal(req, res) {
+
     const { id } = req.params;
     const { name, type, description } = req.body;
+    
     const { isValid, error } = AnimalValidator.validate({
       name,
       type,
@@ -71,6 +73,7 @@ class AnimalController {
         .json(formatResponse(400, "Validation error", null, error));
     }
     try {
+      
       const updatedAnimal = await AnimalService.update(id, {
         name,
         type,
