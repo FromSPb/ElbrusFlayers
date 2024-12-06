@@ -57,9 +57,11 @@ function AnimalCard({ user, animal, setAnimals }) {
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
+
         cover={<img alt="example" src={`${import.meta.env.VITE_API}images/${animal?.Images[0]?.img1}`} />}
       >
         <Meta title={<span>{animal?.name}</span>} description={<span>{animal?.type}</span>} />
+
       </Card>
 
       <Modal
