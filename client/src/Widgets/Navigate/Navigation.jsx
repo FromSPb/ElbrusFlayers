@@ -41,7 +41,7 @@ export default function Navigation({ user, setUser }) {
         {!user && (
           <>
             <Link to="/signin">
-              <Button text="Войти" />
+              <Button text="Вход" />
             </Link>
 
             <Link to="/signup">
